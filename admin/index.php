@@ -1,3 +1,19 @@
+<?php
+	session_start();
+	if ($_SESSION['username']=='admin'){
+		header('Location: main.php');
+		exit;
+	}
+	if ($_POST){
+		if ($_POST['username']=='admin' && $_POST['password']=='monpass'){
+			$_SESSION['username']=$_POST['username'];
+			header('Location: main.php');
+			exit;
+		} else {
+			$errMSG = '<div style="border:solid 2px red;background:pink;color:red;padding:1em;display:inline-block;">Nom d\'utilisateur ou mot de passe invalide.</div>';
+		}
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,17 +23,15 @@
 </head>
 <body>
 	<h1>Accès contrôlé</h1>
+	<?php print $errMSG;?>
 	<p>Veuillez vous authentifier ci-dessous.</p>
-	<form action="main.html">
-		<input placeholder="Nom d'utilisateur">
-		<input placeholder="Mot de passe" type="password">
+	<form method="POST">
+		<input name="username" placeholder="Nom d'utilisateur">
+		<input name="password" placeholder="Mot de passe" type="password">
 		<input type="submit">
 	</form>
 	<footer>
 		<p>
-			<?php
-				
-			?>
 		</p>
 	</footer>
 </body>
