@@ -31,8 +31,6 @@
 		<input type="submit">
 	</form>
 	<footer>
-		<p>
-		</p>
 	</footer>
 </body>
 </html>
