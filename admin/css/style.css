@@ -1,0 +1,7 @@
+.err-msg {
+	border: solid 2px red;
+	background: pink;
+	color: red;
+	padding: 1em;
+	display: inline-block;
+}
