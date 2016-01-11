@@ -6,7 +6,7 @@
 	}
 	if ($_POST){
 		if (trim($_POST['title'])){
-			$fileName = strtolower(trim($_POST['title']));
+			$fileName = $_GET['edition']?$_GET['edition']:strtolower(trim($_POST['title']));
 			$originCharacters = 'àçéèêîôù';
 			$destinCharacters = 'aceeeiou';
 			$fileName = strtr($fileName,$originCharacters,$destinCharacters);
