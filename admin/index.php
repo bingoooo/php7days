@@ -24,7 +24,7 @@
 </head>
 <body>
 	<h1>Accès contrôlé</h1>
-	<?php print $errMSG;?>
+	<?php if(isset($errMSG))print $errMSG;?>
 	<p>Veuillez vous authentifier ci-dessous.</p>
 	<form method="POST">
 		<input name="username" placeholder="Nom d'utilisateur">
