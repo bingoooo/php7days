@@ -13,6 +13,7 @@
 			$fileName = preg_replace('/[^a-z0-9-]/', '-', $fileName);
 			$fileName = 'posts/'.$fileName.'.md';
 			$metaData['title'] = $_POST['title'];
+			$metaData['content'] = $_POST['content'];
 			$fileContent = json_encode($metaData)."\n";
 			$fileContent.= strip_tags($_POST['content']);
 			if (file_put_contents($fileName, $fileContent)){
@@ -45,7 +46,7 @@
 	<form method="POST">
 		<label for="title">Titre de l'article</label> <input id="title" name="title" <?php if (isset($metaData['title'])) echo 'value="'.$metaData['title'].'"'; ?>><br>
 		<label for="content">Contenu</label><br>
-		<textarea id="content" rows="25" cols="60"><?php if (isset($content)) echo $content; ?></textarea><br>
+		<textarea id="content" name="content" rows="25" cols="60"><?php if (isset($content)) echo $content; ?></textarea><br>
 		<input type="submit">
 	</form>
 </body>
